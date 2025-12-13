@@ -65,6 +65,8 @@ I recall supabase/SQL does not play nicely with hyphens. I think you can use quo
 
 <!-- Could have a "How likely are you to recommend us to freiends/family?" And have it be a RANGE slider, just to be fancy. --> **
 
+- forgot to give select option list a name. Corrected.
+
 ==app.js==
 
 -Have submit functionality working, form data can now be stored as object formValues.
@@ -87,6 +89,40 @@ WITH FETCH MAKE SURE YOU DO NOT SUBMIT LOCALHOST!!!!!!
 
 -post for /feedback successfully retrieves formValues, which is form data from app.js
 
+<!-- Is const feedback being the same name as the table causing problems? --> I don't think so.
+
+<!-- /home/randy/TechEd/guestbook-project/server/node_modules/pg-pool/index.js:45
+    Error.captureStackTrace(err)
+          ^
+
+Error: getaddrinfo EAI_AGAIN postgres.
+    at /home/randy/TechEd/guestbook-project/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  errno: -3001,
+  code: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'postgres.' --> Is this because I made the constructor function after app.post in server.js an async function?
+
+- Tried removing async: no difference
+- corrected vlaues for star rating so number (on render, expecting int) = no difference
+- Tried creating a new table and linking to that = no difference
+- Literally trying anything at this point
+- changed app.get and post to arrow functions, just to get it like for like with workshop demo
+- in server package.json moved "type":"module" to the same spot as in demo.
+- I would compare package.json but.... no thanks.
+- Moved addEventListener in client app.js from before to after handleSubmit, in case there's something fundamental I'm forgetting. As far as I could tell, that side of things was working fine.
+- in client app.js changed event argument name from "submitEvent" to "event" just so it's identical to workshop (and I'm all out of ideas). Ditto with "formData" to "formDataTemplate"
+- Bertie can attest there were some mishaps when setting up the project (vite stuff) but we seemingly got it sorted. Maybe not?
+- Guess what?
+- I solved it
+- Want to know how?
+- Noticed in dbConnections for getting the DATABASE-URL, it says "connectionString"
+- S-T-R-I-N-G
+- My darn url in the env was pasted without quotations! It wasn't a string! Egads!
+- Well it is now. Fixed and works.
+
 ==database==
 
 - set up Feedback Responses table
+- ensured method: transaction pooler is selected
+- forgot to include age in table on render. Deleted table, included age in teh order it should be, yet for some reason it puts it as the last column. Thanks Render.
