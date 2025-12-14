@@ -60,7 +60,7 @@ function handleSubmit(event) {
   const formValues = Object.fromEntries(formDataTemplate);
   console.log(formValues);
 
-  fetch("http://localhost:8080/feedback", {
+  fetch("https://guestbook-assignment-o9ze.onrender.com/feedback", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -69,16 +69,34 @@ function handleSubmit(event) {
   });
 }
 
+//   fetch("http://localhost:8080/feedback", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ formValues }),
+//   });
+// }
+
 userForm.addEventListener("submit", handleSubmit);
 
-//Get database query results from server:
-
 async function getDatabaseQuery() {
-  const response = await fetch("http://localhost:8080/feedback");
+  const response = await fetch(
+    "https://guestbook-assignment-o9ze.onrender.com/feedback"
+  );
   console.log(response);
   const data = await response.json();
   return data;
 }
+
+//Get database query results from server:
+
+// async function getDatabaseQuery() {
+//   const response = await fetch("http://localhost:8080/feedback");
+//   console.log(response);
+//   const data = await response.json();
+//   return data;
+// }
 
 //Decrementing for loop so DOM will add elements in order of most recent
 
@@ -182,7 +200,3 @@ async function sortReviews() {
 }
 
 sortReviews();
-
-// TODO: After submit button clicked. Use DOM to present to user what they put with a nice, un-editable sheen.
-//TODO: I assume on teh same page is fine, but could I direct to another page and have it displayed there? Would I want to?
-//TODO: Probably want to just get rid of all form elements and display on current page
