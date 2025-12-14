@@ -101,9 +101,9 @@ Error: getaddrinfo EAI_AGAIN postgres.
   errno: -3001,
   code: 'EAI_AGAIN',
   syscall: 'getaddrinfo',
-  hostname: 'postgres.' --> Is this because I made the constructor function after app.post in server.js an async function?
+  hostname: 'postgres.' -->
 
-- Tried removing async: no difference
+<!-- - Tried removing async: no difference
 - corrected vlaues for star rating so number (on render, expecting int) = no difference
 - Tried creating a new table and linking to that = no difference
 - Literally trying anything at this point
@@ -118,11 +118,73 @@ Error: getaddrinfo EAI_AGAIN postgres.
 - Want to know how?
 - Noticed in dbConnections for getting the DATABASE-URL, it says "connectionString"
 - S-T-R-I-N-G
-- My darn url in the env was pasted without quotations! It wasn't a string! Egads!
+- My darn url in the env was pasted without quotations! It wasn't a string! Egads! -->
+
 - Well it is now. Fixed and works.
+
+- added reviewSection for DOM
 
 ==database==
 
 - set up Feedback Responses table
 - ensured method: transaction pooler is selected
 - forgot to include age in table on render. Deleted table, included age in teh order it should be, yet for some reason it puts it as the last column. Thanks Render.
+
+==Media==
+
+Added star rating images to project. The 5 star rating is slightly misaligned compared to the other images despite coming from the same artist, how annoying!
+
+Was trying to do something similar to how vite generates an entire HTML page but just for teh star rating section but for whatever reaosn I simply could not add alt text to the images after they've been created. Src? No problem. But not alt. Thought it was because the element selector "forgets" it once an attribute has been set, but even if I try JUST doing alt, still no dice. Bizarre. Doing as global at top of script and just peppering that section with divs. We like divs.
+
+I simply do not understand why only one star image is getting added to the divs (the last one attempted, I tested by commenting it out and the preceding one is suddenly successful). This happens with this code (after comment "Oh boy this was a pain in the backside:"):
+// immersionImg.appendChild(starElements[immersion]);
+// actingImg.appendChild(starElements[acting]);
+// challengeImg.appendChild(starElements[challenge]);
+
+    // maindiv.appendChild(namediv);
+    // maindiv.appendChild(ratingsdiv);
+
+    // ratingsdiv.appendChild(immersiondiv);
+    // ratingsdiv.appendChild(actingdiv);
+    // ratingsdiv.appendChild(challengediv);
+
+    // immersiondiv.appendChild(immersionText);
+    // immersiondiv.appendChild(immersionImg);
+
+    // actingdiv.appendChild(actingText);
+    // actingdiv.appendChild(actingImg);
+
+    // challengediv.appendChild(challengeText);
+    // challengediv.appendChild(challengeImg);
+
+    // maindiv.appendChild(commentdiv);
+    // reviewSection.appendChild(maindiv);
+
+If I do this instead, same things happen:
+
+reviewSection.appendChild(maindiv);
+// maindiv.appendChild(namediv);
+// maindiv.appendChild(ratingsdiv);
+// maindiv.appendChild(commentdiv);
+// ratingsdiv.appendChild(immersiondiv);
+// ratingsdiv.appendChild(actingdiv);
+// ratingsdiv.appendChild(challengediv);
+// immersiondiv.appendChild(immersionText);
+// immersiondiv.appendChild(immersionImg);
+// actingdiv.appendChild(actingText);
+// actingdiv.appendChild(actingImg);
+// challengediv.appendChild(challengeText);
+// challengediv.appendChild(challengeImg);
+// immersionImg.appendChild(starElements[immersion]);
+// actingdiv.appendChild(starElements[acting]);
+// challengediv.appendChild(starElements[challenge]);
+
+I tried something else but deleted the comment for it. Didn't work either.
+
+So _blows raspberries_ gonna just do a separate function and await this one. Is what I WOULD say if my back wasn't on teh verge of breaking and virtually falling asleep at my PC, so instead we are just gonna saay "sucks to that" and just display it as text.
+
+I did try stringify but didn't work, just prints out empty brackets.
+
+Yeah I'm checking out unfortunately. Zero CSS. Zero responsiveness. Radio buttons are confusing, but otehrwise functionality works.
+
+I was going to add a page refresh to HandleSubmit by turning it into async and adding a reload() after await, but brain is melt.

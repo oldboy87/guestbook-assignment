@@ -39,3 +39,12 @@ app.post("/feedback", (req, res) => {
   );
   res.json({ status: "success", values: feedback });
 });
+
+//Read data from database table:
+app.get("/feedback", async function (req, res) {
+  const reviews = await db.query(
+    `SELECT firstname, surname, immersion, acting, challenge, comment FROM userFeedback;`
+  );
+  console.log(reviews.rows);
+  res.json(reviews.rows);
+});

@@ -10,123 +10,177 @@
   <body>
     <!-- TODO: an element to allow users to input data -->
     <!-- TODO: Probably wouldn't have some of these personal details as REQUIRED -->
-    <form id="feedback-form">
-      <fieldset>
-        <div>
-          <legend>Personal Information</legend>
-          <label for="firstname">First Name: </label>
-          <input type="text" name="firstname" required maxlength="30" />
-          <label for="surname">Surname: </label>
-          <input type="text" name="surname" required maxlength="30" />
-          <label for="email">Email: </label>
-          <input type="email" name="email" required maxlength="30" />
-        </div>
+    <section id="section-form">
+      <form id="feedback-form">
+        <fieldset>
+          <div>
+            <legend>Personal Information</legend>
+            <label for="firstname">First Name: </label>
+            <input type="text" name="firstname" required maxlength="30" />
+            <label for="surname">Surname: </label>
+            <input type="text" name="surname" required maxlength="30" />
+            <label for="email">Email: </label>
+            <input type="email" name="email" required maxlength="30" />
+          </div>
 
-        Gender:
+          Gender:
 
-        <div>
-          <label for="genderMale">Male: </label>
-          <input type="radio" id="genderMale" name="gender" value="male" />
-          <label for="genderFemale">Female: </label>
-          <input type="radio" id="genderFemale" name="gender" value="female" />
-          <label for="genderNonbinary">Non-binary: </label>
-          <input
-            type="radio"
-            id="genderNonbinary"
-            name="gender"
-            value="nonbinary"
-          />
-          <label for="genderOther">Other / Prefer Not to Disclose: </label>
-          <input
-            type="radio"
-            id="genderOther"
-            name="gender"
-            value="other"
-            checked
-          />
-        </div>
+          <div>
+            <label for="genderMale">Male: </label>
+            <input type="radio" id="genderMale" name="gender" value="male" />
+            <label for="genderFemale">Female: </label>
+            <input
+              type="radio"
+              id="genderFemale"
+              name="gender"
+              value="female"
+            />
+            <label for="genderNonbinary">Non-binary: </label>
+            <input
+              type="radio"
+              id="genderNonbinary"
+              name="gender"
+              value="nonbinary"
+            />
+            <label for="genderOther">Other / Prefer Not to Disclose: </label>
+            <input
+              type="radio"
+              id="genderOther"
+              name="gender"
+              value="other"
+              checked
+            />
+          </div>
 
-        <label for="ageSelect">Your Age Category:</label>
-        <select id="ageSelect" name="age">
-          <option value="">--Please choose an option--</option>
-          <option value="16to25">16-25</option>
-          <option value="26to35">26-35</option>
-          <option value="36to45">36-45</option>
-          <option value="46to55">46-55</option>
-          <option value="56to65">56-65</option>
-          <option value="over65">Over 65</option>
-        </select>
-      </fieldset>
+          <label for="ageSelect">Your Age Category:</label>
+          <select id="ageSelect" name="age">
+            <option value="">--Please choose an option--</option>
+            <option value="16to25">16-25</option>
+            <option value="26to35">26-35</option>
+            <option value="36to45">36-45</option>
+            <option value="46to55">46-55</option>
+            <option value="56to65">56-65</option>
+            <option value="over65">Over 65</option>
+          </select>
+        </fieldset>
 
-      <fieldset>
-        <legend>Your Feedback</legend>
-        How would you rate each of the following?
-        <div>
-          How immersed in the experience did you feel from the way the rooms
-          looked and sound?
-          <label for="rateImmersion1">1 star: </label>
-          <input type="radio" id="rateImmersion1" name="immersion" value="1" />
-          <label for="rateImmersion2">2 star: </label>
-          <input type="radio" id="rateImmersion2" name="immersion" value="2" />
-          <label for="rateImmersion3">3 star: </label>
-          <input
-            type="radio"
-            id="rateImmersion3"
-            name="immersion"
-            value="3"
-            checked
-          />
-          <label for="rateImmersion4">4 star: </label>
-          <input type="radio" id="rateImmersion4" name="immersion" value="4" />
-          <label for="rateImmersion5">4 star: </label>
-          <input type="radio" id="rateImmersion5" name="immersion" value="5" />
-        </div>
+        <fieldset>
+          <legend>Your Feedback</legend>
+          How would you rate each of the following?
+          <div>
+            How immersed in the experience did you feel from the way the rooms
+            looked and sound?
+            <label for="rateImmersion1">1 star: </label>
+            <input
+              type="radio"
+              id="rateImmersion1"
+              name="immersion"
+              value="1"
+            />
+            <label for="rateImmersion2">2 star: </label>
+            <input
+              type="radio"
+              id="rateImmersion2"
+              name="immersion"
+              value="2"
+            />
+            <label for="rateImmersion3">3 star: </label>
+            <input
+              type="radio"
+              id="rateImmersion3"
+              name="immersion"
+              value="3"
+              checked
+            />
+            <label for="rateImmersion4">4 star: </label>
+            <input
+              type="radio"
+              id="rateImmersion4"
+              name="immersion"
+              value="4"
+            />
+            <label for="rateImmersion5">4 star: </label>
+            <input
+              type="radio"
+              id="rateImmersion5"
+              name="immersion"
+              value="5"
+            />
+          </div>
 
-        <div>
-          How convincing or enjoyable did you find the performances of the
-          actors?
-          <label for="rateActing1">1 star: </label>
-          <input type="radio" id="rateActing1" name="acting" value="1" />
-          <label for="rateActing2">2 star: </label>
-          <input type="radio" id="rateActing2" name="acting" value="2" />
-          <label for="rateActing3">3 star: </label>
-          <input
-            type="radio"
-            id="rateActing3"
-            name="acting"
-            value="3"
-            checked
-          />
-          <label for="rateActing4">4 star: </label>
-          <input type="radio" id="rateActing4" name="acting" value="4" />
-          <label for="rateActing5">4 star: </label>
-          <input type="radio" id="rateActing5" name="acting" value="5" />
-        </div>
+          <div>
+            How convincing or enjoyable did you find the performances of the
+            actors?
+            <label for="rateActing1">1 star: </label>
+            <input type="radio" id="rateActing1" name="acting" value="1" />
+            <label for="rateActing2">2 star: </label>
+            <input type="radio" id="rateActing2" name="acting" value="2" />
+            <label for="rateActing3">3 star: </label>
+            <input
+              type="radio"
+              id="rateActing3"
+              name="acting"
+              value="3"
+              checked
+            />
+            <label for="rateActing4">4 star: </label>
+            <input type="radio" id="rateActing4" name="acting" value="4" />
+            <label for="rateActing5">4 star: </label>
+            <input type="radio" id="rateActing5" name="acting" value="5" />
+          </div>
 
-        <div>
-          How enjoyable were the challenges you faced?
-          <label for="rateChallenge1">1 star: </label>
-          <input type="radio" id="rateChallenge1" name="challenge" value="1" />
-          <label for="rateChallenge2">2 star: </label>
-          <input type="radio" id="rateChallenge2" name="challenge" value="2" />
-          <label for="rateChallenge3">3 star: </label>
-          <input
-            type="radio"
-            id="rateChallenge3"
-            name="challenge"
-            value="3"
-            checked
-          />
-          <label for="rateChallenge4">4 star: </label>
-          <input type="radio" id="rateChallenge4" name="challenge" value="4" />
-          <label for="rateChallenge5">4 star: </label>
-          <input type="radio" id="rateChallenge5" name="challenge" value="5" />
-        </div>
-        <label for="comment">Please leave any additional comments here: </label>
-        <input id="commentbox" type="text" name="comment" />
-        <div></div>
-      </fieldset>
-      <button type="submit">Submit Feedback</button>
-    </form>
+          <div>
+            How enjoyable were the challenges you faced?
+            <label for="rateChallenge1">1 star: </label>
+            <input
+              type="radio"
+              id="rateChallenge1"
+              name="challenge"
+              value="1"
+            />
+            <label for="rateChallenge2">2 star: </label>
+            <input
+              type="radio"
+              id="rateChallenge2"
+              name="challenge"
+              value="2"
+            />
+            <label for="rateChallenge3">3 star: </label>
+            <input
+              type="radio"
+              id="rateChallenge3"
+              name="challenge"
+              value="3"
+              checked
+            />
+            <label for="rateChallenge4">4 star: </label>
+            <input
+              type="radio"
+              id="rateChallenge4"
+              name="challenge"
+              value="4"
+            />
+            <label for="rateChallenge5">4 star: </label>
+            <input
+              type="radio"
+              id="rateChallenge5"
+              name="challenge"
+              value="5"
+            />
+          </div>
+          <label for="comment"
+            >Please leave any additional comments here:
+          </label>
+          <input id="commentbox" type="text" name="comment" />
+          <div></div>
+        </fieldset>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+
+    <section id="reviews"></section>
+    <a href="https://www.flaticon.com/free-icons/rating" title="rating icons"
+      >Rating icons created by Alla Afanasenko - Flaticon</a
+    >
   </body>
 </html>
